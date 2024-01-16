@@ -1,92 +1,88 @@
-div {
-    display: flex;
-    justify-content: space-around;
-  }
-  form {
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 30%;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    padding: 30px;
-  }
-  
-  
-  
-  label {
-    font-size: 20px;
-  }
-  
-  table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 60%;
-    margin: auto;
-    margin-top: 50px;
-    text-align: center;
-  }
-  
-  table td,
-  table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  table tr:nth-child(even) {
-    background-color: #8caacf;
-  }
-  
-  table tr:hover {
-    background-color: #ddd;
-  }
-  
-  table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #0468aa;
-    color: white;
-    text-align: center;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  input[type="text"],
-  select,
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-  }
-  
-  input[type="submit"] {
-    background-color: #2b619e;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 20px;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #3973b6;
+/* Add this CSS to your index.css file */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text color */
   }
   
   h1 {
+    font-size:50px;
     text-align: center;
-    font-size: 50px;
-    text-transform: uppercase;
-    font-family: monospace;
-    color: #2b619e;
-    text-decoration: underline;
+    color: #007bff; /* Blue heading color */
+  }
+  
+  form {
+    float: left;
+    width: 30%; /* Adjust the width as needed */
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff; /* White background for the form container */
+    box-shadow: 0 0 10px rgba(44, 8, 102, 0.1);
+    border-radius: 2%;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  table {
+    float: right;
+    width: 45%; /* Adjust the width as needed */
+    margin: 20px;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    border-radius:12px;
+    padding: 10px;
+ /* Light gray border */
+  }
+  
+  th {
+    background-color: #007bff; /* Blue header background */
+    color: #fff; /* White text color */
+  }
+  
+  tbody {
+    background-color: #fff; /* White background for table body */
+  }
+  
+  button {
+    background-color: #dc3545; /* Red button background */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    
+  }
+  
+  button:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+  /* Add this CSS to your existing styles in index.css */
+
+input[type="submit"] {
+    background-color: #1512d4e3; /* Green submit button background */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add smooth transition for background color */
+    border-radius:10px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #1434c4; /* Darker green on hover */
   }
   
