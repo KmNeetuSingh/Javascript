@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+      background-image: url(https://plus.unsplash.com/premium_photo-1673466856699-63939d1f8cf3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+    }
+    
+    h1 {
+      color: black;
+      font-size: 80px;
+    }
+
+    label {
+      margin: 10px;
+      font-size: 18px;
+    }
+
+    input {
+      width: 50px;
+      text-align: center;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      background-color:lightgoldenrodyellow;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: darkorchid;
+    }
+
+    #timerDisplay {
+      font-size: 300px;
+      margin-top: 20px;
+      color: #333;
+      font-weight: bold;
+
+    }
+
+    /* Optional: Add a subtle box-shadow to buttons on hover for depth */
+    button:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Timer</h1>
+
+  <label id="hoursLabel">Hours: <input id="hours" type="number" min="0" value="0"></label>
+  <label id="minutesLabel">Minutes: <input id="minutes" type="number" min="0" value="0"></label>
+  <label id="secondsLabel">Seconds: <input id="seconds" type="number" min="0" value="0"></label>
+
+  <br>
+
+  <button onclick="startTimer()">Start</button>
+  <button onclick="pauseTimer()">Pause</button>
+  <button onclick="resetTimer()">Reset</button>
+
+  <h2 id="timerDisplay">00:00:00</h2>
+
+  <script>
+    let timer;
+    let totalSeconds = 0;
+    let paused = false;
+
+    function startTimer() {
+      if (!timer) {
+        // Hide input elements when the timer starts
+        document.getElementById('hoursLabel').style.display = 'none';
+        document.getElementById('minutesLabel').style.display = 'none';
+        document.getElementById('secondsLabel').style.display = 'none';
+
+        const hours = parseInt(document.getElementById('hours').value) || 0;
+        const minutes = parseInt(document.getElementById('minutes').value) || 0;
+        const seconds = parseInt(document.getElementById('seconds').value) || 0;
+
+        totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+        timer = setInterval(updateTimer, 1000);
+      }
+    }
+
+    function updateTimer() {
+      if (totalSeconds > 0 && !paused) {
+        totalSeconds--;
+
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        document.getElementById('timerDisplay').innerText =
+          `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      } else {
+        clearInterval(timer);
+        timer = null;
+
+        // Show input elements when the timer resets
+        document.getElementById('hoursLabel').style.display = 'inline-block';
+        document.getElementById('minutesLabel').style.display = 'inline-block';
+        document.getElementById('secondsLabel').style.display = 'inline-block';
+      }
+    }
+
+    function pauseTimer() {
+      paused = !paused;
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = null;
+      paused = false;
+
+      // Show input elements when the timer resets
+      document.getElementById('hoursLabel').style.display = 'inline-block';
+      document.getElementById('minutesLabel').style.display = 'inline-block';
+      document.getElementById('secondsLabel').style.display = 'inline-block';
+
+      document.getElementById('hours').value = 0;
+      document.getElementById('minutes').value = 0;
+      document.getElementById('seconds').value = 0;
+
+      totalSeconds = 0;
+
+      document.getElementById('timerDisplay').innerText = '00:00:00';
+    }
+  </script>
+
+</body>
+
+</html>
