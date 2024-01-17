@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow with Controls</title>
+  <style>
+    /* Style the slideshow container */
+    .slideshow-container {
+      max-width: 800px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Style the slides */
+    .mySlides {
+      display: none;
+    }
+
+    /* Style the buttons */
+    .control-btn {
+      position: absolute;
+      top: 50%;
+      width: 50px;
+      padding: 10px;
+      font-size: 18px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .control-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Style the start/stop button */
+    #startStopBtn {
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+  <!-- Slides -->
+  
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=2" alt="Slide 2">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=2" alt="Slide 2">
+  </div>
+  
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=2" alt="Slide 2">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=2" alt="Slide 2">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=2" alt="Slide 2">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=2" alt="Slide 2">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=2" alt="Slide 2">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=2" alt="Slide 2">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=1" alt="Slide 1">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/33FF57/000000?text=20" alt="Slide 2">
+  </div>
+  <div class="mySlides">
+    <img src="https://via.placeholder.com/800x400/5733FF/FFFFFF?text=20" alt="Slide 20">
+  </div>
+
+  <!-- Control buttons -->
+  <button class="control-btn" onclick="startStopSlideShow()" id="startStopBtn">&#9654;</button>
+  <button class="control-btn" onclick="plusSlides(-1)">&#10094;</button>
+  <button class="control-btn" onclick="plusSlides(1)">&#10095;</button>
+</div>
+
+<script>
+  let slideIndex = 0;
+  let slideInterval;
+
+  function showSlides() {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+  }
+
+  function startStopSlideShow() {
+    if (!slideInterval) {
+      // Start slideshow
+      slideInterval = setInterval(showSlides, 2000);
+      document.getElementById("startStopBtn").innerHTML = "&#9616;&#9616;"; // Pause symbol
+    } else {
+      // Stop slideshow
+      clearInterval(slideInterval);
+      slideInterval = null;
+      document.getElementById("startStopBtn").innerHTML = "&#9654;"; // Play symbol
+    }
+  }
+
+  function plusSlides(n) {
+    clearInterval(slideInterval);
+    slideIndex += n;
+    showSlides();
+  }
+
+  // Start slideshow initially
+  startStopSlideShow();
+</script>
+
+</body>
+</html>
